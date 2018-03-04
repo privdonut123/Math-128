@@ -1,12 +1,16 @@
-function Romberg(f,a,b,n)
+function R_f = Romberg(f,a,b,n)
+digits(15)
 R = zeros(length(n));
 for i = 1:length(n)
     h = (b-a)/n(i);
-    syms k;
-    f_sum = symsum(f(a+h*k),k,1,n(i)-1);
+    syms q;
+    f_sum = symsum(f(a+h*q),q,1,n(i)-1);
     R(i,1) = (h/2)*(f(a)+2*f_sum+f(b));
-for j = 2:length(n)
-    for k = j:length(n
 end
-disp(R)
+for j = 2:length(n)
+    for k = j:length(n)
+        R(k,j) = R(k,j-1)+(1/(4^(j-1)-1))*(R(k,j-1) - R(k-1,j-1));
+    end
+end
+R_f = (R(length(n),length(n)));
 end
