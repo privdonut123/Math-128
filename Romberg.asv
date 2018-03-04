@@ -1,0 +1,12 @@
+function Romberg(f,a,b,n)
+R = zeros(length(n));
+for i = 1:length(n)
+    h = (b-a)/n(i);
+    syms k;
+    f_sum = symsum(f(a+h*k),k,1,n(i)-1);
+    R(i,1) = (h/2)*(f(a)+2*f_sum+f(b));
+for j = 2:length(n)
+    for k = j:length(n
+end
+disp(R)
+end
