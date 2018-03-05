@@ -1,4 +1,4 @@
-function R_f = Romberg(f,a,b,n)
+function R_f = Romberg(f,a,b,n) %f=symbolic function, a=lowerbound, b = upperbound, n = array of number of bins
 digits(15)
 R = zeros(length(n));
 for i = 1:length(n)
