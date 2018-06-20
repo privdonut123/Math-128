@@ -1,0 +1,9 @@
+function dummy = trap_int(f,x0,x1)
+h = x1-x0;
+pt1 = (h/2)*(f(x1)+f(x0));
+deriv = symfun(diff(f,x,2),x);
+if (-1*deriv(x0))>(-1*deriv(x1))
+    pt2 = deriv(x0)
+else
+    pt2 = deriv(x0)
+dummy = double(pt1);

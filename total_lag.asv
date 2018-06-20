@@ -1,0 +1,10 @@
+function total_lag(p,f,x_0)
+syms x
+f_x = symfun(f,x);
+f_p = f_x(p);
+p_x = symfun(lagpoly(lagrangepoly(p,f_p)),x);
+xx = linspace(--5,5,5000);
+plot(xx,f_x(xx),'b',xx,p_x(xx),'r')
+fprintf('f(.5) = %.4f',f_x(x_0),'%d\n')
+fprintf('p(.5) = %.4f',p_x(x_0))
+end
